@@ -1,6 +1,6 @@
 # nuxt_app
 
-> + 前端: vue/vue-router/vuex/axios
+> + 前端: vue/vue-router/vuex/axios/element-ui
 > + 后端/SSR: koa2/nuxt
 
 ## Build Setup
