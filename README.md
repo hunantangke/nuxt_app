@@ -1,6 +1,7 @@
 # nuxt_app
 
-> My splendid Nuxt.js project
+> + 前端: vue/vue-router/vuex/axios
+> + 后端/SSR: koa2/nuxt
 
 ## Build Setup
 
@@ -18,5 +19,3 @@ $ yarn start
 # generate static project
 $ yarn run generate
 ```
-
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
