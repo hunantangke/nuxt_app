@@ -12,18 +12,33 @@
         :span="15"
         class="center">
         <div class="wrapper">
-          <el-input placeholder="搜索商家或地点"/>
-          <button class="el-button el-button--primary"><i class="el-icon-search"/></button>
+          <el-input
+            v-model="search"
+            placeholder="搜索商家或地点"
+            @blur="blur"
+            @focus="focus"
+          />
+          <button class="el-button el-button--primary">
+            <i class="el-icon-search"/>
+          </button>
           <dl
-            v-if="0"
+            v-if="isHotPlace"
             class="hotPlace">
             <dt>热门搜索</dt>
-            <dd><a :href="ss">s1</a></dd>
+            <dd
+              v-for="(item, index) in hotPlace"
+              :key="index"
+            ><a :href="ss">{{ item }}</a>
+            </dd>
           </dl>
           <dl
-            v-if="0"
+            v-if="isSearchList"
             class="searchList">
-            <dd><a :href="ss">s2</a></dd>
+            <dd
+              v-for="(item, index) in searchList"
+              :key="index"
+            ><a :href="ss">{{ item }}</a>
+            </dd>
           </dl>
         </div>
         <p class="suggest">
@@ -61,8 +76,33 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      search: "",
+      isFocus: false,
+      hotPlace: [1, 1, 1, 1],
+      searchList: [2, 2, 2, 2],
+    }
+  },
+  computed: {
+    isHotPlace: function() {
+      return !this.search&&this.isFocus
+    },
+    isSearchList: function() {
+      return this.search&&this.isFocus
+    }
+  },
+  methods: {
+    focus: function() {
+      this.isFocus = true
+    },
+    blur: function() {
+      this.isFocus = false
+    }
+  }
+}
 </script>
 
-<style lang="css">
+<style lang="scss">
 </style>
